@@ -1,8 +1,30 @@
 # Finish the implementation of the Car class so it has the functionality described below
 
 class Car
+    attr_reader :make, :model
+    @@all = []
 
+    def initialize(make, model)
+        @make = make
+        @model = model
 
+        @@all << self
+    end
+
+    # def initialize(car_hash)
+    #     @make = car_hash[:make]
+    #     @model = car_hash[:model]
+
+    #     @@all << self
+    # end
+
+    def self.drive
+        "VROOOOOOOOOOOOM!"
+    end
+
+    def self.all
+        @@all
+    end
 
 end
 
@@ -18,14 +40,19 @@ volvo_lightning.model
 Car.drive
 # => "VROOOOOOOOOOOOM!"
 
-Car.all
+# Car.all
 #=> [#<Car:0x00007fae28930f20>, #<Car:0x00007fae28923370>, #<Car:0x00007fae2891ae78>]
 
-BONUS:
+# puts Car.all
 
-volvo_lightning = Car.new(make: "Volvo", model: "Lightning")
+# BONUS:
 
-volvo_lightning.make
-#=> "Volvo"
-volvo_lightning.model
-#=> "Lightning"
+# volvo_lightning = Car.new(make: "Volvo", model: "Lightning")
+
+# volvo_lightning.make
+# #=> "Volvo"
+# volvo_lightning.model
+# #=> "Lightning"
+
+# puts volvo_lightning.make
+# puts volvo_lightning.model
